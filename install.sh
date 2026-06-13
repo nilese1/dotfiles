@@ -101,7 +101,7 @@ PKGS=(
     i3 lightdm firefox-esr git starship vim flatpak
     gcc python3 pipx xclip compton feh imagemagick
     libx11-dev libxft-dev fastfetch tree-sitter-cli
-    ripgrep scrot
+    ripgrep scrot alacritty
 )
 
 spin "apt update" sudo apt-get update -qq
