@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+
+WallDir=${1:-~/Pictures/Wallpapers}
+
+RESULT=$(rofi -no-config -show filebrowser -filebrowser-command "feh")
+
+echo "$RESULT"
+
+#
+# echo -en "\0prompt\x1fChoose Wallpaper\n"
+#
+# WALLPAPER_PATH=~/Pictures/wallpapers/*
+# CHOSEN="None"
+#
+# for file in $WALLPAPER_PATH; do
+# 	if [ -f "$file" ]; then
+# 		echo -en "$(basename $file)\0icon\x1f$file\n"
+# 	fi
+# done
+#
+#
+#

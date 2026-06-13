@@ -1,0 +1,6 @@
+#!/bin/bash
+
+FLATPAK_PATH="/var/lib/flatpak/exports/share/applications/*"
+ENTRIES_PATH="/home/ethan/.local/share/applications/"
+
+for f in $FLATPAK_PATH; do ln -s $f $ENTRIES_PATH; done
