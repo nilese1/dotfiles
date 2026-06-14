@@ -24,6 +24,8 @@ configuration {
 window {
   width: 40%;
   height: 22%;
+  border: 2;
+  border-color: #ffffff;
   background-color: @background;
 }
 

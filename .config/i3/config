@@ -51,7 +51,7 @@ font pango:CaskaydiaCove NerdFont, Italic 8
 #font pango:DejaVu Sans Mono 8
 
 # class                 border  backgr. (     ) indica. child_border
-client.focused          $bg     $bg     $fg  $bg       $cl
+client.focused          $cl     $bg     $fg  $cl       $cl
 client.focused_inactive $bg     $bg     $fg  $bg       $bg
 client.unfocused        $bg     $bg     $fg  $bg       $bg
 client.urgent           $bg     $bg     $fg  $bg       $bg
