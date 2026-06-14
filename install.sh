@@ -105,7 +105,7 @@ PKGS=(
     playerctl python3-i3ipc
 )
 
-spin "apt update" sudo apt-get update -qq
+spin "apt update" sudo apt update -qq
 
 total=${#PKGS[@]}
 idx=0
@@ -119,14 +119,28 @@ done
 
 ok "APT packages done"
 
-# ── PYWAL16 ─────────────────────────────────────────────────
-section "PYWAL16"
+# ── PIPX ─────────────────────────────────────────────────
+section "PIPX"
+PIPX_PKGS=(
+    pywal16 i3-workspace-names-daemon
+)
 
-if pipx list 2>/dev/null | grep -q "pywal16"; then
-    skip "pywal16"
-else
-    spin "Installing pywal16" pipx install pywal16
-fi
+total=${#PIPX_PKGS[@]}
+idx=0
+for pkg in "${PIPX_PKGS[@]}"; do
+    skipped_msg=""
+    if pipx list 2>/dev/null | grep "$pkg" -q; then
+        skipped_msg="(skipped)"
+    else
+        pipx install "$pkg"
+    fi
+    rc=$?
+    ((idx++))
+    progress_bar "$idx" "$total" "$pkg $skipped_msg"
+    [[ $rc -ne 0 ]] && fail "apt could not install: $pkg"
+done
+
+ok "PIPX packages done"
 
 # ── RUST ────────────────────────────────────────────────────
 section "RUST TOOLCHAIN"
