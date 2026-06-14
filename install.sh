@@ -99,9 +99,10 @@ section "APT PACKAGES"
 
 PKGS=(
     i3 lightdm firefox-esr git starship vim flatpak
-    gcc python3 pipx xclip compton feh imagemagick
+    gcc python3 pipx xclip picom feh imagemagick
     libx11-dev libxft-dev fastfetch tree-sitter-cli
-    ripgrep scrot alacritty
+    ripgrep scrot alacritty polybar rofi htop compton
+    playerctl python3-i3ipc
 )
 
 spin "apt update" sudo apt-get update -qq
@@ -162,7 +163,7 @@ section "NERD FONTS"
 FONTS_DIR="$HOME/.local/share/fonts"
 mkdir -p "$FONTS_DIR"
 
-FONTS=("CascadiaMono" "CascadiaCode" "Noto")
+FONTS=("CascadiaMono" "CascadiaCode" "Noto" "CommitMono")
 NERD_FONTS_VER="v3.4.0"
 BASE_URL="https://github.com/ryanoasis/nerd-fonts/releases/download/${NERD_FONTS_VER}"
 

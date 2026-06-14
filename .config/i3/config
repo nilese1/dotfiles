@@ -26,10 +26,10 @@ set_from_resource $bg i3wm.color1 #f0f0f0
 exec_always --no-startup-id autorandr --change
 
 # Straight outta compton
-exec_always --no-startup-id compton
+exec_always --no-startup-id picom &
 
 # Load notification daemon
-exec_always --no-startup-id dunst -conf "~/.config/dunst/dunstrc"
+exec_always --no-startup-id dunst -conf "~/.config/dunst/dunstrc" &
 
 # policykit
 exec_always --no-startup-id lxpolkit &
@@ -246,8 +246,16 @@ bindsym $mod+r mode "resize"
 assign [class="discord"] 2
 assign [class="Discord"] 2
 
-# Load wallpaper
-exec --no-startup-id "wal -R"
-
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# Load wallpaper
+exec --no-startup-id $HOME/.local/bin/wal -R
+
+exec --no-startup-id $HOME/.config/i3/i3-master-stack/i3_master start
+# swap to master node
+bindsym $mod+m nop swap master 
+# go to master node
+bindsym $mod+shift+m nop go master 
+# enable/disable master layout in current workspace
+bindsym $mod+shift+t nop master toggle 
