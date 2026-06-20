@@ -102,7 +102,8 @@ PKGS=(
     gcc python3 pipx xclip picom feh imagemagick
     libx11-dev libxft-dev fastfetch tree-sitter-cli
     ripgrep scrot alacritty polybar rofi htop compton
-    playerctl python3-i3ipc
+    playerctl python3-i3ipc pipewire pipewire-pulse
+    pavucontrol
 )
 
 spin "apt update" sudo apt update -qq

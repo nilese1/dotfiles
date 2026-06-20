@@ -233,8 +233,8 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-assign [class="discord"] 2
-assign [class="Discord"] 2
+# assign [class="discord"] 2
+# assign [class="Discord"] 2
 
 # Polybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
