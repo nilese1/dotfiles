@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+export XDG_DATA_DIRS="/var/lib/snapd/desktop:${XDG_DATA_DIRS:-/usr/local/share:/usr/share}"
+
 if pgrep -x "rofi" >/dev/null; then
     pkill -x "rofi"
     exit 0
@@ -17,6 +19,9 @@ case "$1" in
         ;;
     "rofi-wallpaper")
         rofi -modi wallpaper-menu:~/.config/rofi/scripts/rofi-wallpaper-menu -config ~/.config/rofi/config_power.rasi -show wallpaper-menu &
+        ;;
+    "rofi-mpd")
+        ~/.config/rofi/scripts/rofi-mpd-menu
         ;;
     *)
         echo "Invalid choice $1"

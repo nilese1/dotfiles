@@ -91,8 +91,37 @@ progress_bar() {
     [[ $current -eq $total ]] && echo
 }
 
+confirm() {
+    local pkg="$1"
+    local reply
+
+    while true; do
+        printf "Install %s? This is probably gonna add some arbitrary repository to apt. [y/n]: " "$pkg"
+        read -r reply
+        case "$reply" in
+            [Yy]|[Yy][Ee][Ss]) return 0 ;;
+            [Nn]|[Nn][Oo]) return 1 ;;
+            *) printf "Please answer y or n.\n" ;;
+        esac
+    done
+}
+
 # ── go time ─────────────────────────────────────────────────
 banner
+
+# ── APT REPOSITORIES ───────────────────────────────────────────
+section "APT REPOSITORIES"
+
+
+if [[ ! -d "/usr/bin/ueberzug" ]] && confirm "ueberzugpp"; then
+    echo 'deb http://download.opensuse.org/repositories/home:/justkidding/Debian_13/ /' | sudo tee /etc/apt/sources.list.d/home:justkidding.list
+    curl -fsSL https://download.opensuse.org/repositories/home:justkidding/Debian_13/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/home_justkidding.gpg > /dev/null
+    sudo apt update -qq
+    sudo apt install ueberzugpp -y -qq
+else
+    skip "ueberzugpp"
+fi
+
 
 # ── APT PACKAGES ────────────────────────────────────────────
 section "APT PACKAGES"
@@ -103,7 +132,7 @@ PKGS=(
     libx11-dev libxft-dev fastfetch tree-sitter-cli
     ripgrep scrot alacritty polybar rofi htop compton
     playerctl python3-i3ipc pipewire pipewire-pulse
-    pavucontrol
+    pavucontrol mpd
 )
 
 spin "apt update" sudo apt update -qq
@@ -151,6 +180,15 @@ if [[ -d "$HOME/.cargo" ]]; then
 else
     spin "Installing Rust via rustup" \
         bash -c 'curl --proto "=https" --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y'
+fi
+
+# maybe do modular package installation like above if this gets out of hand
+# RMPC ────────────────────────────────────────────────────
+if [[ -d "$HOME/.cargo/bin/rmpc" ]]; then
+    skip "rmpc"
+else
+    spin "Installing rmpc via cargo" \
+        bash -c 'cargo install rmpc -q'
 fi
 
 # ── PACSTALL ─────────────────────────────────────────────────

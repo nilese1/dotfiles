@@ -29,6 +29,8 @@ vim.pack.add({
 
 	"https://github.com/nvim-mini/mini.nvim",
 
+	"https://github.com/folke/todo-comments.nvim",
+
 	-- LSP CONFIGURATION
 	"https://github.com/williamboman/mason.nvim",
 	"https://github.com/williamboman/mason-lspconfig.nvim",
@@ -37,6 +39,9 @@ vim.pack.add({
 	"https://github.com/hrsh7th/cmp-nvim-lsp",
 	"https://github.com/neovim/nvim-lspconfig",
 })
+
+-- No config needed
+require("todo-comments").setup({})
 
 require("plugins.oil")
 require("plugins.treesitter")

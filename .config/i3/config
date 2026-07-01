@@ -97,6 +97,7 @@ bindsym $mod+Shift+q kill
 # rofi :3
 bindsym $mod+d exec "~/.config/i3/scripts/manage-rofi rofi"
 bindsym $mod+p exec "~/.config/i3/scripts/manage-rofi rofi-power"
+bindsym $mod+i exec "~/.config/i3/scripts/manage-rofi rofi-mpd"
 
 # Screenshots
 bindsym $mod+t exec "~/.config/i3/scripts/take-screenie.sh"
@@ -251,3 +252,7 @@ bindsym $mod+shift+m nop go master
 bindsym $mod+shift+t nop master toggle 
 
 exec_always --no-startup-id exec $HOME/.local/bin/i3-workspace-names-daemon -l 5 &
+
+exec_always --no-startup-id udiskie &
+
+exec_always --no-startup-id $HOME/.config/i3/scripts/mpd-stuff.sh &
