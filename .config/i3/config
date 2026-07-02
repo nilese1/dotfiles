@@ -97,13 +97,11 @@ bindsym $mod+Shift+q kill
 # rofi :3
 bindsym $mod+d exec "~/.config/i3/scripts/manage-rofi rofi"
 bindsym $mod+p exec "~/.config/i3/scripts/manage-rofi rofi-power"
+bindsym $mod+Shift+w exec "~/.config/i3/scripts/manage-rofi rofi-wallpaper"
 bindsym $mod+i exec "~/.config/i3/scripts/manage-rofi rofi-mpd"
 
 # Screenshots
 bindsym $mod+t exec "~/.config/i3/scripts/take-screenie.sh"
-
-# dunst stuff
-
 
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"

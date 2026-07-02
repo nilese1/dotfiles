@@ -18,7 +18,7 @@ case "$1" in
         rofi -modi power-menu:~/.config/rofi/scripts/rofi-power-menu -config ~/.config/rofi/config_power.rasi --symbols 'CaskaydiaCove Nerd Font' -show power-menu &
         ;;
     "rofi-wallpaper")
-        rofi -modi wallpaper-menu:~/.config/rofi/scripts/rofi-wallpaper-menu -config ~/.config/rofi/config_power.rasi -show wallpaper-menu &
+        ~/.config/rofi/scripts/rofi-wallpaper-menu
         ;;
     "rofi-mpd")
         ~/.config/rofi/scripts/rofi-mpd-menu

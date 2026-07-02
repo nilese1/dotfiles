@@ -4,12 +4,13 @@ configuration {
   display-run: "Command:";
   drun-display-format: "{name}";
   font: "CaskaydiaCove Nerd Font Regular 11";
-  modi: "window,run,drun,emoji,filebrowser";
+  modi: "window,run,drun,filebrowser";
   show-icons: true;
   filebrowser {
-      directories-first: true;
-      sorting-method:    "mtime";
-      command: "wal -i";
+    directories-first: true;
+    sorting-method:    "mtime";
+    command: "wal -i";
+    directory: "~/Pictures/wallpapers";
   }
 }
 
@@ -24,7 +25,7 @@ configuration {
 
 window {
   width: 40%;
-  height: 22%;
+  height: 40%;
   border: 2;
   border-color: #ffffff;
   background-color: @background;
@@ -54,7 +55,7 @@ element-icon {
 
 entry {
   padding: 12;
-  background-color: @bg-alt;
+  background-color: @background;
   text-color: @foreground;
 }
 
@@ -65,7 +66,7 @@ inputbar {
 
 listview {
   background-color: @background;
-  columns: 2;
+  columns: 1;
   lines: 10;
 }
 
@@ -82,5 +83,6 @@ prompt {
 }
 
 element-icon {
-    size:             0 ch ;
+  size: 50px;
+  padding: 0 10 0 0;
 }

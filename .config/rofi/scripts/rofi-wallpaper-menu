@@ -1,23 +1,39 @@
 #!/usr/bin/env bash
 
+source ~/.profile
 
-WallDir=${1:-~/Pictures/Wallpapers}
+WallDir=${1:-~/Pictures/wallpapers}
 
-RESULT=$(rofi -no-config -show filebrowser -filebrowser-command "feh")
+if [ -n "$1" ]; then
+    CHOSEN="$WallDir/$1"
+    wal -i "$CHOSEN"
+    exit 0
+fi
 
-echo "$RESULT"
+echo -en "\0prompt\x1fChoose Wallpaper\n"
 
-#
-# echo -en "\0prompt\x1fChoose Wallpaper\n"
-#
-# WALLPAPER_PATH=~/Pictures/wallpapers/*
-# CHOSEN="None"
-#
-# for file in $WALLPAPER_PATH; do
-# 	if [ -f "$file" ]; then
-# 		echo -en "$(basename $file)\0icon\x1f$file\n"
-# 	fi
-# done
-#
-#
-#
+WALLPAPER_PATH=~/Pictures/wallpapers/*
+
+list_files() {
+    for file in $WALLPAPER_PATH; do
+        if [ -f "$file" ]; then
+            echo -en "$(basename $file)\0icon\x1f$file\n"
+        fi
+    done
+}
+
+run_rofi() {
+    rofi -theme "~/.config/rofi/config_wallpaper.rasi" -i -dmenu -q
+}
+
+rofi_cmd() {
+    list_files | run_rofi
+}
+
+chosen="$(rofi_cmd)"
+
+if [ -z "$chosen" ]; then
+    exit 0
+fi
+
+wal -qi "$WallDir/$chosen" && notify-send -u low -t 3000 "Wallpaper changed to $chosen"

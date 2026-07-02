@@ -7,9 +7,10 @@ configuration {
   modi: "window,run,drun,filebrowser";
   show-icons: true;
   filebrowser {
-      directories-first: true;
-      sorting-method:    "name";
-      command: "feh";
+    directories-first: true;
+    sorting-method:    "mtime";
+    command: "wal -i";
+    directory: "~/Pictures/wallpapers";
   }
 }
 
