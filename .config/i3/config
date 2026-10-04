@@ -11,7 +11,7 @@
 
 set $mod Mod1
 set $browser "firefox"
-set $terminal "tabbed -r 2 alacritty --embed ''"
+set $terminal "tabbed -r 2 alacritty -embed ''"
 set $inner_gaps_size 10
 set $outer_gaps_size 1
 set $border_size 3

@@ -33,6 +33,8 @@ vim.pack.add({
 
 	"https://github.com/YousefHadder/markdown-plus.nvim",
 
+	"https://github.com/IogaMaster/tuxedo.nvim",
+
 	-- LSP CONFIGURATION
 	"https://github.com/williamboman/mason.nvim",
 	"https://github.com/williamboman/mason-lspconfig.nvim",
@@ -62,5 +64,6 @@ require("plugins.guess-indent")
 require("plugins.ibl")
 require("plugins.barbar")
 require("plugins.mini")
+require("plugins.tuxedo")
 
 require("plugins.mason")

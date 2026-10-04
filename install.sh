@@ -132,7 +132,7 @@ PKGS=(
     libx11-dev libxft-dev fastfetch tree-sitter-cli
     ripgrep scrot alacritty polybar rofi htop compton
     playerctl python3-i3ipc pipewire pipewire-pulse
-    pavucontrol mpd
+    pavucontrol mpd lightdm-settings
 )
 
 spin "apt update" sudo apt update -qq
