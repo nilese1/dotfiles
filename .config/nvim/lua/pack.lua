@@ -31,6 +31,8 @@ vim.pack.add({
 
 	"https://github.com/folke/todo-comments.nvim",
 
+	"https://github.com/YousefHadder/markdown-plus.nvim",
+
 	-- LSP CONFIGURATION
 	"https://github.com/williamboman/mason.nvim",
 	"https://github.com/williamboman/mason-lspconfig.nvim",
@@ -42,6 +44,7 @@ vim.pack.add({
 
 -- No config needed
 require("todo-comments").setup({})
+require("markdown-plus").setup({})
 
 require("plugins.oil")
 require("plugins.treesitter")

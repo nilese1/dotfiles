@@ -40,3 +40,5 @@ vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("t", "<Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 vim.keymap.set("n", "<C-x>", "<cmd>close<cr>")
+
+vim.keymap.set("v", "<leader>fu", ":normal! ^g~l<CR>", { desc = "Swap case of first letter in each line" })

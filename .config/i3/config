@@ -24,7 +24,8 @@ set_from_resource $bg i3wm.color1 #f0f0f0
 set_from_resource $bg2 i3wm.color3 #f0f0f0
 
 # Load display Configuration
-exec_always --no-startup-id autorandr --change
+# -l main bc it bugged for me on startup, sorry to my future self if it breaks something
+exec_always --no-startup-id autorandr -l main
 
 # Straight outta compton
 exec_always --no-startup-id picom &

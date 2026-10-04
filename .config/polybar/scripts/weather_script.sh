@@ -14,7 +14,7 @@ WEATHER_DESC=$(echo "$WEATHER_JSON" | jq -r '.current_condition[0].weatherDesc[0
 
 # Function to assign an emoji to a weather condition
 get_weather_emoji() {
-    local desc="$1"
+    local desc=$(trim_spaces "$1")
     case "$desc" in
         "Sunny") echo "☀️" ;;
         "Clear") echo "🌙" ;;
@@ -35,6 +35,10 @@ get_weather_emoji() {
         "Patchy light snow with thunder"|"Moderate or heavy snow with thunder") echo "⛈️❄️" ;;
         *) echo "❓" ;;
     esac
+}
+
+trim_spaces() {
+    echo "$1" | xargs
 }
 
 remove_quotes() {

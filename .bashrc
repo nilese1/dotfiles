@@ -7,6 +7,7 @@ export PATH="${PATH}:${HOME}/.local/bin/"
 export PATH="${PATH}:${HOME}/bin/" 
 export PATH="${PATH}:${HOME}/.config/scripts/add-to-path"
 export PATH="${PATH}:/opt/nvim/bin"
+export PATH="${PATH}:${HOME}/go/bin/"
 
 # THE WALL... THE WALL
 if [[ $- == *i* ]]; then
@@ -129,3 +130,20 @@ eval "$(starship init bash)"
 
 # Created by `pipx` on 2026-04-22 18:23:06
 export PATH="$PATH:/home/ethan/.local/bin"
+
+# opencode
+export PATH=/home/ethan/.opencode/bin:$PATH
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+
+# Added by Antigravity CLI installer
+export PATH="/home/ethan/.local/bin:$PATH"
+
+source '/home/ethan/.bash_completions/typer.sh'
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
